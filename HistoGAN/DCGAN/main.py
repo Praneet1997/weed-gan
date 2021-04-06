@@ -13,7 +13,7 @@ flags.DEFINE_integer("epoch", 100, "Epoch to train [25]")
 flags.DEFINE_float("learning_rate", 0.0002, "Learning rate of for adam [0.0002]")
 flags.DEFINE_float("beta1", 0.5, "Momentum term of adam [0.5]")
 flags.DEFINE_float("train_size", np.inf, "The size of train images [np.inf]")
-flags.DEFINE_integer("batch_size", 1, "The size of batch images [64]")
+flags.DEFINE_integer("batch_size", 64, "The size of batch images [64]")
 flags.DEFINE_integer("input_height", 224, "The size of image to use (will be center cropped). [108]")
 flags.DEFINE_integer("input_width", None, "The size of image to use (will be center cropped). If None, same value as input_height [None]")
 flags.DEFINE_integer("output_height", 224, "The size of the output images to produce [64]")
@@ -67,11 +67,7 @@ def main(_):
   if not os.path.exists(FLAGS.checkpoint_dir): os.makedirs(FLAGS.checkpoint_dir)
   if not os.path.exists(FLAGS.sample_dir): os.makedirs(FLAGS.sample_dir)
 
-  with open(os.path.join(FLAGS.out_dir, 'FLAGS.json'), 'w') as f:
-    flags_dict = {k:flags.FLAGS.__flags[k] for k in flags.FLAGS.__flags}
-    json.dump(flags_dict, f, indent=4, sort_keys=True, ensure_ascii=False)
   
-
   #gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.333)
   run_config = tf.ConfigProto()
   run_config.gpu_options.allow_growth=True
