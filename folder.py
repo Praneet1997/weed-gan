@@ -1,7 +1,7 @@
 import shutil, os
 import pandas as pd
 
-labels = pd.read_csv("labels/labels.csv")
+labels = pd.read_csv("weed-gan/labels/labels.csv")
 labels = labels.sort_values('Species')
 
 class_names = list(labels.Species.unique())

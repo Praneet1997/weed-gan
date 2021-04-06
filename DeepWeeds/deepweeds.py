@@ -23,7 +23,7 @@ import requests
 
 # Global paths
 OUTPUT_DIRECTORY = "./outputs/"
-LABEL_DIRECTORY = "./labels/"
+LABEL_DIRECTORY = "./weed-gan/labels/"
 MODEL_DIRECTORY = "./models/"
 MODEL_GD_ID = "1MRbN5hXOTYnw7-71K-2vjY01uJ9GkQM5"
 MODEL_ZIP_FILE = "./models/models.zip"
@@ -36,7 +36,7 @@ RAW_IMG_SIZE = (256, 256)
 IMG_SIZE = (224, 224)
 INPUT_SHAPE = (IMG_SIZE[0], IMG_SIZE[1], 3)
 MAX_EPOCH = 5
-BATCH_SIZE = 256
+BATCH_SIZE = 64
 FOLDS = 5
 STOPPING_PATIENCE = 32
 LR_PATIENCE = 16
